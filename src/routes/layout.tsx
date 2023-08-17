@@ -4,31 +4,67 @@ import Footer from "../components/footer/footer";
 import styles from "./styles.css?inline";
 import { routeLoader$ } from '@builder.io/qwik-city';
 
+type ExperienceItem = {
+  id: string;
+  company: string;
+  position: string;
+}
+
 type QiitaItem = {
   title: string;
   url: string;
   id: string;
 };
 
-export const userArticles = routeLoader$(async () => {
-//  return "hoge";
-/*
-  const url = "https://qiita.com/api/v2/users/daisuke-yamamoto/items?page=1&per_page=10";
-  const response = await fetch(url);
-  const data = await response.json();
-  console.log(data);
-  return data;
-*/
+type CertItem = {
+  blockchainId: string;
+  title: string;
+}
 
+export const userExperience = routeLoader$(async () => {
+  const res: ExperienceItem[] = [
+    {
+        id: '2022-09',
+        company: 'Retail AI X Inc.',
+        position: 'Lead Engineer',
+    },
+    {
+        id: '2021-06',
+        company: 'Retail AI X Inc.',
+        position: 'Software Engineer',
+    },
+    {
+        id: '2020-06',
+        company: 'Retail AI Engineering Inc.',
+        position: 'Software Engineer',
+    }
+  ]
+  return res;
+});
+
+export const userArticles = routeLoader$(async () => {
   const response = await fetch(`https://qiita.com/api/v2/users/daisuke-yamamoto/items?page=1&per_page=10`);
   const qiitaItems: any[] = await response.json();
-  const filterQiitaItems: QiitaItem[] = qiitaItems.map(item => ({
+  const res: QiitaItem[] = qiitaItems.map(item => ({
     title: item.title,
     url: item.url,
     id: item.id,
   }));
-  return filterQiitaItems;
+  return res;
+});
 
+export const userCertificates = routeLoader$(async () => {
+  const res: CertItem[] = [
+    {
+        blockchainId: '732838',
+        title: 'Google Cloud Certified - Professional Cloud Developer',
+    },
+    {
+        blockchainId: '672721',
+        title: 'Google Cloud Certified - Professional Cloud Architect',
+    }
+  ];
+  return res;
 });
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
