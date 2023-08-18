@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import { useDocumentHead } from "@builder.io/qwik-city";
 //import styles from "./portfolio.module.css";
 import { userExperience, userArticles, userCertificates } from '../../routes/layout';
 
@@ -6,13 +7,14 @@ export default component$(() => {
     const experienceData = userExperience();
     const articlesData = userArticles();
     const certificatesData = userCertificates();
+    const head = useDocumentHead();
     return (
         <>
         <div>
 
             {/** Introduction Section */}
             <section>
-                <h1>hoge</h1>
+                <h1>{head.title}</h1>
                 <p>Welcome to my portfolio</p>
             </section>
 
