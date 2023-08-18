@@ -10,12 +10,14 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = {
-  title: "Welcome to Qwik",
-  meta: [
-    {
-      name: "description",
-      content: "Qwik site description",
-    },
-  ],
+export const head: DocumentHead = () => {
+  return {
+    title: "danny's portfolio",
+    meta: [
+      {
+        name: "description",
+        content: "Qwik site description",
+      },
+    ],
+  }
 };

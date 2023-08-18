@@ -4,6 +4,11 @@ import Footer from "../components/footer/footer";
 import styles from "./styles.css?inline";
 import { routeLoader$ } from '@builder.io/qwik-city';
 
+type PersonalItem = {
+  myname: string;
+  nickname: string;
+}
+
 type ExperienceItem = {
   id: string;
   company: string;
@@ -20,6 +25,16 @@ type CertItem = {
   blockchainId: string;
   title: string;
 }
+
+export const userPersonal = routeLoader$(async () => {
+  const res: PersonalItem[] = [
+    {
+      myname: 'Daisuke Yamamoto',
+      nickname: 'danny',
+    }
+  ]
+  return res;
+})
 
 export const userExperience = routeLoader$(async () => {
   const res: ExperienceItem[] = [
@@ -79,8 +94,6 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 };
 
 export default component$(() => {
-  const signal = userArticles();
-  console.log(signal);
   useStyles$(styles);
   return (
     <>
