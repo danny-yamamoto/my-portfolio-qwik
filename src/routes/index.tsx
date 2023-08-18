@@ -12,11 +12,11 @@ export default component$(() => {
 
 export const head: DocumentHead = () => {
   return {
-    title: "danny's portfolio",
+    title: "Daisuke Yamamoto",
     meta: [
       {
         name: "description",
-        content: "Qwik site description",
+        content: "danny's portfolio",
       },
     ],
   }
