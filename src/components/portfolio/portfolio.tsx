@@ -1,6 +1,5 @@
 import { component$ } from "@builder.io/qwik";
 import { useDocumentHead } from "@builder.io/qwik-city";
-//import styles from "./portfolio.module.css";
 import { userExperience, userArticles, userCertificates } from '../../routes/layout';
 
 export default component$(() => {
@@ -13,7 +12,7 @@ export default component$(() => {
         <div>
 
             {/** Introduction Section */}
-            <section>
+            <section id="intro">
                 <h1>{head.title}</h1>
                 <p>Welcome to my portfolio</p>
             </section>
@@ -29,7 +28,7 @@ export default component$(() => {
             </section>
 
             {/** Articles Section */}
-            <section>
+            <section id="articles">
                 <h2>Top 10 Articles</h2>
                 <ul>
                 {articlesData.value.map(({ title, id, url }) => (
