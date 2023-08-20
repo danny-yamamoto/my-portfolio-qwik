@@ -58,7 +58,7 @@ export const userExperience = routeLoader$(async () => {
 });
 
 export const userArticles = routeLoader$(async () => {
-  const response = await fetch(`https://qiita.com/api/v2/users/daisuke-yamamoto/items?page=1&per_page=10`);
+  const response = await fetch(`https://qiita.com/api/v2/users/daisuke-yamamoto/items?page=1&per_page=20`);
   const qiitaItems: any[] = await response.json();
   const res: QiitaItem[] = qiitaItems.map(item => ({
     title: item.title,
