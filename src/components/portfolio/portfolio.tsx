@@ -7,6 +7,7 @@ export default component$(() => {
     const articlesData = userArticles();
     const certificatesData = userCertificates();
     const head = useDocumentHead();
+    const articlesDataLen = articlesData.value.length;
     return (
         <>
         <div>
@@ -29,7 +30,7 @@ export default component$(() => {
 
             {/** Articles Section */}
             <section id="articles">
-                <h2>Top 10 Articles</h2>
+                <h2>Top {articlesDataLen} Articles</h2>
                 <ul>
                 {articlesData.value.map(({ title, id, url }) => (
                     <li key={id}>
